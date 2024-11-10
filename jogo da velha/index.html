@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha Educativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt.png'), 
+                              linear-gradient(45deg, #1a1e29, #132d46);
+            background-blend-mode: multiply;
+            animation: gradientShift 10s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes gradientShift {
+            0% { background-color: #1a1e29; }
+            50% { background-color: #132d46; }
+            100% { background-color: #1a1e29; }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            display: none;
+            z-index: 1000;
+            font-size: 18px;
+            max-width: 300px;
+            width: auto;
+            text-align: center;
+        }
+
+        .notification-success {
+            background-color: rgba(34, 197, 94, 0.9);
+            color: white;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        .notification-error {
+            background-color: rgba(239, 68, 68, 0.9);
+            color: white;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+        }
+
+        .modal-content {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .modal-content button {
+            transition: background-color 0.3s ease;
+        }
+
+        .bg-green-600 {
+            background-color: #059669 !important;
+        }
+
+        .bg-red-600 {
+            background-color: #dc2626 !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .grid-cell {
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .grid-cell:hover {
+            background-color: #1e293b;
+            transform: scale(1.05);
+        }
+
+        .input-field {
+            border: 2px solid #ffffff;
+            background-color: #1a1e29;
+            color: #ffffff;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            border-color: #01c38e;
+            outline: none;
+        }
+
+        .styled-button {
+            background-color: #01c38e;
+            color: #ffffff;
+            transition: transform 0.3s;
+        }
+
+        .styled-button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: auto;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            position: relative;
+            display: inline-block;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #01c38e;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        footer a:hover::after {
+            transform: scaleX(1);
+        }
+
+        @media (max-width: 768px) {
+            .grid-cell {
+                font-size: 3rem;
+                height: 60px;
+            }
+            .notification {
+                font-size: 16px;
+                padding: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            footer {
+                padding: 1.5rem 1rem;
+            }
+            footer .flex-col {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between bg-gradient-to-b from-[#1a1e29] to-[#132d46]">
+    <main class="flex-grow flex items-center justify-center p-8">
+        <div class="max-w-2xl w-full bg-gray-900 text-white rounded-lg shadow-xl p-8 space-y-8">
+            <h1 class="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-green-300 mb-6">
+                Jogo da Velha Educativo
+            </h1>
+
+            <div id="nameSelection" class="text-center">
+                <h2 class="text-2xl font-bold mb-4">Escolha os nomes dos jogadores</h2>
+                <div class="space-y-4">
+                    <input type="text" id="player1Name" placeholder="Nome do Jogador 1" class="w-full p-3 rounded-lg placeholder-gray-400 text-lg input-field" required>
+                    <input type="text" id="player2Name" placeholder="Nome do Jogador 2" class="w-full p-3 rounded-lg placeholder-gray-400 text-lg input-field" required>
+                    <button id="startGameBtn" class="w-full p-3 styled-button text-white font-semibold rounded-lg mt-4">Iniciar Jogo</button>
+                </div>
+            </div>
+
+            <div id="scoreBoard" class="hidden flex justify-between mb-4">
+                <div class="text-blue-500 font-semibold text-xl" id="playerXName">Jogador X: <span id="scoreX">0</span></div>
+                <div class="text-red-500 font-semibold text-xl" id="playerOName">Jogador O: <span id="scoreO">0</span></div>
+            </div>
+
+            <div id="board" class="grid grid-cols-3 gap-4 mb-6 hidden">
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+                <div class="grid-cell h-24 bg-gray-800 rounded-lg flex items-center justify-center text-5xl font-semibold cursor-pointer text-white" data-cell></div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button id="backToStartBtn" class="hidden w-full py-3 px-6 bg-teal-400 text-white font-semibold rounded-lg shadow-md hover:bg-teal-500 transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50">
+                    Voltar ao Início
+                </button>
+            </div>
+
+            <div id="questionModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+                <div class="bg-gray-900 p-8 rounded-lg max-w-lg w-full modal-content shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-4 text-white" id="question"></h2>
+                    <div class="space-y-4" id="answers"></div>
+                </div>
+            </div>
+
+            <div id="notification" class="notification"></div>
+        </div>
+    </main>
+
+    <footer class="w-full bg-gradient-to-r from-gray-900 to-gray-800 text-white py-8 border-t-2 border-[#01c38e]">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left space-y-2">
+                    <div class="flex items-center justify-center md:justify-start gap-2">
+                        <span class="text-teal-400 font-bold text-lg">Matheus Felix</span>
+                        <span class="text-gray-400">|</span>
+                        <span class="text-sm text-gray-300">Desenvolvedor Front-end</span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        &copy; 2024 Jogo da Velha Educativo
+                        <span class="block md:inline">Todos os direitos reservados.</span>
+                    </p>
+                </div>
+    
+                <div class="flex flex-col items-center md:items-end gap-4">
+                    <div class="flex items-center gap-6">
+                        <a href="https://github.com/mthfl" 
+                           target="_blank" 
+                           class="text-teal-300 hover:text-teal-400 transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/matheus-felix-74489329a/" 
+                           target="_blank" 
+                           class="text-teal-300 hover:text-teal-400 transition-colors duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mth_fl" 
+                           target="_blank" 
+                           class="text-teal-300 hover:text-teal-400 transition-colors duration-300">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                    <div class="text-xs text-gray-400 text-center md:text-right">
+                        <p>Desenvolvido por Matheus Felix</p>
+                        <a href="mailto:matheus.dev91@gmail.com" class="text-teal-400 hover:text-teal-300 transition-colors duration-300">
+                            matheus.dev91@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <script src="./main.js"></script>
+</body>
+</html>
