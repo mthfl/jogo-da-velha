@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100">
+  <!-- Estilos aprimorados -->
+  <style>
+    .grid-line {
+      stroke: #2c3e50;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      transition: stroke 0.3s ease;
+    }
+    .symbol-x {
+      stroke: #e74c3c;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      transition: all 0.3s ease;
+    }
+    .symbol-o {
+      stroke: #3498db;
+      stroke-width: 2.2;
+      fill: none;
+      transition: all 0.3s ease;
+    }
+    /* Adiciona hover effects */
+    .symbol-x:hover {
+      stroke: #c0392b;
+      stroke-width: 2.5;
+    }
+    .symbol-o:hover {
+      stroke: #2980b9;
+      stroke-width: 2.5;
+    }
+  </style>
+
+  <!-- Background suave -->
+  <rect x="0" y="0" width="24" height="24" fill="#f8f9fa" rx="3"/>
+  
+  <!-- Grid com sombras sutis -->
+  <g filter="url(#shadow)">
+    <!-- Linhas verticais -->
+    <line x1="8" y1="4" x2="8" y2="20" class="grid-line"/>
+    <line x1="16" y1="4" x2="16" y2="20" class="grid-line"/>
+    <!-- Linhas horizontais -->
+    <line x1="4" y1="8" x2="20" y2="8" class="grid-line"/>
+    <line x1="4" y1="16" x2="20" y2="16" class="grid-line"/>
+  </g>
+
+  <!-- Filtro para sombra suave -->
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0.2" dy="0.2" stdDeviation="0.2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- X com animação -->
+  <g transform="translate(-0.5, -0.5)">
+    <line x1="5.5" y1="5.5" x2="10.5" y2="10.5" class="symbol-x">
+      <animate attributeName="stroke-width" values="2.2;2.5;2.2" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="10.5" y1="5.5" x2="5.5" y2="10.5" class="symbol-x">
+      <animate attributeName="stroke-width" values="2.2;2.5;2.2" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+
+  <!-- O com animação -->
+  <circle cx="17.5" cy="17.5" r="2.8" class="symbol-o">
+    <animate attributeName="r" values="2.8;3;2.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

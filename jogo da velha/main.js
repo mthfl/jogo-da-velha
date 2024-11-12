@@ -109,7 +109,6 @@ const questions = [
         ],
         correct: 0
     },
- 
     {
         question: "Qual é a função de um roteador?",
         answers: [
@@ -180,7 +179,6 @@ const questions = [
         ],
         correct: 0
     },
-
     {
         question: "Qual a principal função de um antivírus?",
         answers: [
@@ -290,9 +288,309 @@ const questions = [
             "World Internet Fidelity"
         ],
         correct: 0
+    },
+
+    {
+        question: "O que é um SSD?",
+        answers: [
+            "Um tipo de processador",
+            "Um tipo de disco rígido que usa memória flash",
+            "Um software de edição de imagem",
+            "Um dispositivo de entrada"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é a computação em nuvem?",
+        answers: [
+            "Armazenamento de dados em dispositivos locais",
+            "Processamento de dados em computadores sem conexão à internet",
+            "Armazenamento e processamento de dados pela internet",
+            "Um tipo de sistema operacional"
+        ],
+        correct: 2
+    },
+    {
+        question: "O que é um dispositivo de entrada?",
+        answers: [
+            "Um software para editar textos",
+            "Um dispositivo que envia dados para o computador, como teclado e mouse",
+            "Um hardware para armazenar dados",
+            "Um programa para navegar na internet"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que significa PDF?",
+        answers: [
+            "Portable Document Format",
+            "Personal Data File",
+            "Printed Digital File",
+            "Portable Digital File"
+        ],
+        correct: 0
+    },
+    {
+        question: "Qual é a função de um sistema de arquivos?",
+        answers: [
+            "Armazenar e organizar arquivos em um dispositivo de armazenamento",
+            "Proteger o sistema contra vírus",
+            "Gerenciar a conexão com a internet",
+            "Aumentar o desempenho do computador"
+        ],
+        correct: 0
+    },
+    {
+        question: "O que é uma VPN?",
+        answers: [
+            "Um tipo de dispositivo de armazenamento",
+            "Uma rede privada que aumenta a segurança e privacidade na internet",
+            "Um software para edição de vídeo",
+            "Um protocolo de internet"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que significa BIOS?",
+        answers: [
+            "Basic Input Output System",
+            "Binary Input Output Software",
+            "Basic Internet Operating System",
+            "Binary Integrated Operating System"
+        ],
+        correct: 0
+    },
+    {
+        question: "Qual é a principal função de uma GPU?",
+        answers: [
+            "Processar dados de áudio",
+            "Processar gráficos e imagens",
+            "Armazenar dados temporários",
+            "Gerenciar redes de computadores"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é um hotspot?",
+        answers: [
+            "Um local onde o Wi-Fi está disponível publicamente",
+            "Um tipo de malware",
+            "Uma configuração de privacidade",
+            "Um tipo de firewall"
+        ],
+        correct: 0
+    },
+    {
+        question: "O que é overclocking?",
+        answers: [
+            "Aumentar a frequência de um componente para melhorar o desempenho",
+            "Reduzir o consumo de energia de um dispositivo",
+            "Proteger o hardware contra superaquecimento",
+            "Desativar funções do sistema operacional"
+        ],
+        correct: 0
+    },
+    {
+        question: "Qual é a função principal de um sistema RAID?",
+        answers: [
+            "Criar cópias de segurança automáticas",
+            "Proteger contra malware",
+            "Combinar múltiplos discos para aumentar desempenho ou redundância",
+            "Gerenciar as permissões de arquivos"
+        ],
+        correct: 2
+    },
+    {
+        question: "O que significa UX em design?",
+        answers: [
+            "User Experiment",
+            "User Experience",
+            "User External",
+            "Universal Experience"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é uma API?",
+        answers: [
+            "Um sistema de armazenamento de dados",
+            "Uma interface que permite a comunicação entre softwares",
+            "Um software de edição de imagens",
+            "Um tipo de hardware"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é um servidor?",
+        answers: [
+            "Um computador que fornece recursos ou serviços para outros computadores",
+            "Um software para editar textos",
+            "Um dispositivo de entrada",
+            "Um sistema de segurança"
+        ],
+        correct: 0
+    },
+    {
+        question: "Qual a função de uma placa-mãe?",
+        answers: [
+            "Armazenar dados permanentemente",
+            "Controlar a entrada e saída de dados",
+            "Conectar e permitir a comunicação entre os componentes do computador",
+            "Proteger o computador contra vírus"
+        ],
+        correct: 2
+    },
+    {
+        question: "O que significa PHP?",
+        answers: [
+            "Programming Hypertext Protocol",
+            "Preprocessor Hypertext",
+            "Pre Hypertext Processor",
+            "PHP Hypertext Preprocessor"
+        ],
+        correct: 3
+    },
+    {
+        question: "Qual é a principal função do HDMI?",
+        answers: [
+            "Transmitir sinal de áudio e vídeo",
+            "Aumentar a velocidade de conexão com a internet",
+            "Armazenar dados temporários",
+            "Proteger a rede contra ataques"
+        ],
+        correct: 0
+    },
+    {
+        question: "O que é Bluetooth?",
+        answers: [
+            "Um protocolo de internet",
+            "Uma tecnologia para comunicação sem fio em curtas distâncias",
+            "Um software de edição de áudio",
+            "Um tipo de processador"
+        ],
+        correct: 1
+    },
+    {
+        question: "Qual é a função do IP estático?",
+        answers: [
+            "Aumentar a velocidade da internet",
+            "Fornecer um endereço IP fixo para um dispositivo",
+            "Proteger o computador contra vírus",
+            "Monitorar a rede"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é Linux?",
+        answers: [
+            "Um sistema operacional de código aberto",
+            "Um dispositivo de entrada",
+            "Um programa para navegar na internet",
+            "Um tipo de vírus"
+        ],
+        correct: 0
+    },
+    {
+        question: "Qual é a função de um dispositivo de saída?",
+        answers: [
+            "Enviar dados para o computador",
+            "Exibir ou reproduzir dados processados pelo computador",
+            "Armazenar dados permanentemente",
+            "Conectar o computador à internet"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que significa JPEG?",
+        answers: [
+            "Java Programming Enhanced Graphics",
+            "Joint Photographic Experts Group",
+            "Java Protocol for Enhanced Graphics",
+            "Joint Picture Editing Group"
+        ],
+        correct: 1
+    },
+    {
+        question: "Qual é a principal função de um switch de rede?",
+        answers: [
+            "Armazenar dados permanentemente",
+            "Conectar dispositivos em uma rede local",
+            "Proteger o computador contra vírus",
+            "Gerenciar o sistema operacional"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é uma porta USB?",
+        answers: [
+            "Um protocolo de internet",
+            "Um tipo de software",
+            "Um conector universal para transferência de dados e energia",
+            "Um sistema de segurança de rede"
+        ],
+        correct: 2
+    },
+    {
+        question: "Qual é a função do Excel?",
+        answers: [
+            "Criar documentos de texto",
+            "Navegar na internet",
+            "Realizar cálculos e organizar dados em planilhas",
+            "Desenvolver páginas web"
+        ],
+        correct: 2
+    },
+    {
+        question: "O que significa HTTPS?",
+        answers: [
+            "HyperText Transfer Protocol Simple",
+            "HyperText Transfer Protocol Secure",
+            "Hyper Transfer Text Protocol Secure",
+            "Hyperlink Text Transfer Protocol Secure"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é um QR Code?",
+        answers: [
+            "Um tipo de malware",
+            "Uma tecnologia de segurança",
+            "Um código bidimensional para leitura rápida de informações",
+            "Um tipo de software de edição de imagem"
+        ],
+        correct: 2
+    },
+    {
+        question: "O que é o teclado QWERTY?",
+        answers: [
+            "Uma rede de comunicação",
+            "Uma disposição padrão de teclas no teclado",
+            "Um sistema de codificação de imagens",
+            "Um tipo de software de edição de texto"
+        ],
+        correct: 1
+    },
+    {
+        question: "Qual a função de uma impressora 3D?",
+        answers: [
+            "Armazenar dados temporários",
+            "Produzir objetos físicos a partir de modelos digitais",
+            "Proteger contra malwares",
+            "Gerenciar arquivos de mídia"
+        ],
+        correct: 1
+    },
+    {
+        question: "O que é uma rede peer-to-peer (P2P)?",
+        answers: [
+            "Uma rede onde os computadores compartilham recursos diretamente entre si",
+            "Um sistema de backup de dados",
+            "Um protocolo de segurança",
+            "Uma rede de satélites"
+        ],
+        correct: 0
     }
 ];
-
 let currentPlayer = 'X';
 let player1Name = '';
 let player2Name = '';
@@ -300,6 +598,7 @@ let selectedCell = null;
 let board = ['', '', '', '', '', '', '', '', ''];
 let scores = { X: 0, O: 0 };
 let usedQuestions = [];
+let availableQuestions = [...questions]; // Cópia inicial da lista de perguntas
 
 const cells = document.querySelectorAll('[data-cell]');
 const modal = document.getElementById('questionModal');
@@ -355,17 +654,17 @@ function handleCellClick(cell, index) {
 }
 
 function showQuestion() {
-    if (usedQuestions.length === questions.length) {
+    if (availableQuestions.length === 0) {
+        // Todas as perguntas foram usadas; redefina a lista
+        availableQuestions = [...questions];
         usedQuestions = [];
     }
 
-    let randomQuestion;
-    do {
-        randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-    } while (usedQuestions.includes(randomQuestion));
-
+    let randomIndex = Math.floor(Math.random() * availableQuestions.length);
+    let randomQuestion = availableQuestions.splice(randomIndex, 1)[0];
     usedQuestions.push(randomQuestion);
-    questionElement.textContent = randomQuestion.question;
+
+    questionElement.textContent = `${currentPlayer === 'X' ? player1Name : player2Name}, sua pergunta é: ${randomQuestion.question}`;
 
     answersElement.innerHTML = '';
     randomQuestion.answers.forEach((answer, index) => {
@@ -487,6 +786,7 @@ function resetToNameForm() {
     });
 
     usedQuestions = [];
+    availableQuestions = [...questions]; // Reinicia a lista de perguntas disponíveis
     currentPlayer = 'X';
 
     nameSelection.classList.remove('hidden');
